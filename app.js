@@ -47,7 +47,7 @@ var doSendMessage=function(arr) {
     }
     if (global.oldIDs.toString()!==thisIDs.toString()) {
         global.oldIDs=thisIDs.concat();
-        request.post({url:'http://rlwechat.sxb.party/admin/kf.php?touser=oORXywBByJQH1SIYUw15W_RYvJqs', form: {"text":"小银票更新"+(messages.length>=5?"，收益前五高":"")+":\n"+messages.slice(0,5).join("\n")}}, function (error, response, body) {
+        request.post({url:'http://rlwechat.sxb.party/admin/kf.php?touser=oORXywBByJQH1SIYUw15W_RYvJqs', form: {"text":"小银票更新"+(messages.length>=5?"，收益前五高":"")+":\n"+messages.slice(0,5).join("\n")+"\n"+thisIDs.toString()}}, function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 console.log(body);
             }
@@ -55,5 +55,4 @@ var doSendMessage=function(arr) {
     }
 };
 
-main();
 setInterval(main, 60000);
