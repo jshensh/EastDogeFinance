@@ -8,6 +8,6 @@ RUN cd /opt/nodejs && npm install
 WORKDIR /opt/nodejs
 
 # Expose the container port
-# EXPOSE 3000
+EXPOSE 3000
 
 ENTRYPOINT ["node", "app.js"]
