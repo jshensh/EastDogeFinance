@@ -1,0 +1,8 @@
+{
+  "name": "EastDogeFinance",
+  "version": "0.0.1",
+  "description": "EastDogeFinance",
+  "dependencies": {
+    "request": "*"
+  }
+}
