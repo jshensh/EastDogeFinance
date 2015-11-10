@@ -45,8 +45,8 @@ var doSendMessage=function(arr) {
         thisIDs.push(tickets[i][0]);
         messages.push("#"+tickets[i][0]+", "+tickets[i][1]+", "+tickets[i][2]+"%, 剩余 "+tickets[i][3]+" 元, "+tickets[i][4]+" 天");
     }
-    if (global.oldIDs.toString()!==thisIDs.slice(0,5).toString()) {
-        global.oldIDs=thisIDs.slice(0,5);
+    if (global.oldIDs.slice(0,5).toString()!==thisIDs.slice(0,5).toString()) {
+        global.oldIDs=thisIDs.concat();
         request.post({url:'http://rlwechat.sxb.party/admin/kf.php?touser=oORXywBByJQH1SIYUw15W_RYvJqs', form: {"text":"小银票更新"+(messages.length>=5?"，收益前五高":"")+":\n"+messages.slice(0,5).join("\n")}}, function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 console.log(body);
